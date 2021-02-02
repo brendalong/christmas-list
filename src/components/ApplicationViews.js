@@ -45,27 +45,3 @@ export default function ApplicationViews() {
     </main>
   );
 };
-
-/*
- <main>
-    {console.log("process.env.PUBLIC_URL", process.env)}
-      <Switch>
-        
-        <Route path={process.env.PUBLIC_URL + "/"} exact>
-          {isLoggedIn ? <ChrisList /> : <Redirect to="/login" />}
-        </Route>
-
-        <Route path={process.env.PUBLIC_URL + "/add"}>
-          {isLoggedIn ? <ChrisListAddForm /> : <Redirect to={process.env.PUBLIC_URL + "/login"} />}
-        </Route>
-
-        <Route path={process.env.PUBLIC_URL + "/login"}>
-          <Login />
-        </Route>
-
-        <Route path={process.env.PUBLIC_URL + "/register"}>
-          <Register />
-        </Route>
-      </Switch>
-    </main>
-    */

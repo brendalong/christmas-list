@@ -6,6 +6,7 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 export const ChrisItemUpdate = () => {
 
   const [chrisItem, setChrisItem] = useState({});
+
   const history = useHistory();
   const {chrisItemId} = useParams();
 
@@ -39,22 +40,23 @@ export const ChrisItemUpdate = () => {
     <Row>
       <Col className="m-2" md={6}>
         <h4>Edit This Item</h4>
-        <Form onChange={handleInputChange}>
-          <Form.Group controlId="title" className="mb-3">
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" value={chrisItem?.title}/>
-          <Form.Text className="text-muted">
-            For best results, be specific
-          </Form.Text>
-        </Form.Group>
+        <Form>
+        	<Form.Group controlId="title" className="mb-3">
+          		<Form.Label>Title</Form.Label>
+          		<Form.Control type="text" value={chrisItem?.title || ""} onChange={handleInputChange}/>
+          		<Form.Text className="text-muted">
+            		For best results, be specific
+          		</Form.Text>
+        	</Form.Group>
 
-        <Form.Group controlId="details">
-          <Form.Label>Details</Form.Label>
-          <Form.Control as="textarea" rows={3} value={chrisItem?.details}/>
-        </Form.Group>
+        	<Form.Group controlId="details">
+          		<Form.Label>Details</Form.Label>
+          		<Form.Control as="textarea" rows={3} value={chrisItem?.details || ""} onChange={handleInputChange}/>
+        	</Form.Group>
 
           <Button onClick={handleUpdateItem}>Save Changes</Button>
-        </Form>
+		</Form>
+		
       </Col>
       </Row>
       </Container>

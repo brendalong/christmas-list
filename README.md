@@ -84,4 +84,28 @@ let arrayWithFBID = Object.keys(data).map((key, index) => {
 });
 	
 ```
+## Deploy to Github with gh-pages
 
+```
+npm install gh-pages
+```
+
+* Add the homepage property to the package.json
+* Add the scripts to build and deploy to github
+```
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build",
+
+```
+
+* Finally, `npm run deploy` to build and push to gh-pages on your repo.
+
+## Hash Router
+If using react-router-dom, you may need to replace `BrowserRouter` with `HashRouter` 
+
+## Using the Optional Chaining Operator
+If you are getting errors related to the `Optional Chaining Operator` or `?.`, be sure to update eslint. See the ChrisLitAddForm for example usage.
+
+```
+npm install eslint-plugin-react-hooks --save-dev
+```

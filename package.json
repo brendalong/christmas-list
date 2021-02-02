@@ -2,6 +2,7 @@
   "name": "new-journal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://brendalong.github.io/christmas-list",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
@@ -42,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
