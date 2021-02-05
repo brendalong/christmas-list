@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import { Spinner } from "react-bootstrap";
 import firebase from "firebase/app";
 import "firebase/auth";
+import {firebaseConfig} from "./firebaseConfig";
 /*
     The context is imported and used by individual components
     that need data
@@ -20,7 +21,7 @@ export const FirebaseProvider = (props) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   //https://firebase.google.com/docs/auth/web/start?authuser=0
 
-  
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged((u) => {
       setIsFirebaseReady(true);
@@ -62,8 +63,27 @@ export const FirebaseProvider = (props) => {
       .then(savedUserProfile => {
         console.log('savedU', savedUserProfile)
         sessionStorage.setItem("userProfile", JSON.stringify(savedUserProfile.user))
+        checkUser(savedUserProfile.user.uid)
         setIsLoggedIn(true);
       })
+  }
+
+  const checkUser = (userId) => {
+    console.log("checkUser", userId)
+
+    fetch(`${firebaseConfig.databaseURL}/user.json/?orderBy="uid"&equalTo="${firebase.auth().currentUser.uid}"`)
+    // return fetch(`${firebaseConfig.databaseURL}/user.json?orderBy="uid"&equalTo="${userId}"`)
+    .then(result => result.json())
+    .then(parsedResult => {
+      console.log("check result", parsedResult)
+      let resultArray = Object.keys(parsedResult)
+      if(resultArray.length > 0){
+        console.log("YEAH, true user")
+      }else{
+        console.log("false user")
+        //add to user in DB
+      }
+    })
   }
 
 
