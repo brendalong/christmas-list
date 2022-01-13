@@ -1,5 +1,7 @@
 # A New Journal Dawns As A Christmas List
 
+Demo: https://brendalong.github.io/christmas-list/
+
 This project utilizes React, Firebase Authentication, and usage of FirebaseDB as an API with fetch calls.
 
 ## Firebase Setup
